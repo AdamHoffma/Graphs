@@ -63,14 +63,14 @@ class Graph:
         beginning from starting_vertex.
         """
         #Create an empty stack and push the starting vertex id
-        s = Stack()
-        s.push(starting_vertex)
+        stack = Stack()
+        stack.push(starting_vertex)
         #create an empty Set to store visited vertices
         visited = set()
             #While the stack is not empty...
-        while s.size() > 0:
+        while stack.size() > 0:
             #pop the first vertex
-            v = s.pop()
+            v = stack.pop()
             #If that vertex has not been visited
             if v not in visited:
                 #mark it as visited
@@ -78,17 +78,24 @@ class Graph:
                 visited.add(v)
                 #Then add all of its neighbors to the top of the stack 
                 for neighbor in self.vertices[v]:
-                    s.push(neighbor)
+                    stack.push(neighbor)
                     
 
-    def dft_recursive(self, starting_vertex):
+    def dft_recursive(self, starting_vertex, visited=None):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
 
         This should be done using recursion.
         """
-        pass  # TODO
+        if visited is None:
+            visited = set()
+        visited.add(starting_vertex)
+        print(starting_vertex)
+
+        for next_vertex in self.vertices[starting_vertex]:
+            if next_vertex not in visited:
+                self.dft_recursive(next_vertex, visited)
 
     def bfs(self, starting_vertex, destination_vertex):
         """
