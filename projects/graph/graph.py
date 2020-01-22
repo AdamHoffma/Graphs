@@ -29,7 +29,7 @@ class Graph:
         """
         Get all neighbors (edges) of a vertex.
         """
-        pass  # TODO
+        return self.vertices[vertex_id]
 
     def bft(self, starting_vertex):
         """
@@ -97,15 +97,31 @@ class Graph:
         breath-first order.
         """
         #create an empty queue and enqueue A PATH TO the starting vertex id 
+        q = Queue()
+        q.enqueue([starting_vertex])
         #create a set to store visited vertices
+        visited = set()
         #while the queue is not empty
+        while q.size() > 0:
             #dequeue the fist PATH
+            path = q.dequeue()            
+            
             #grab the last vertex from the PATH
+            vertex = path[-1]
             #if that vertex has not been visited
+            if vertex not in visited:
               #  check if it's the target
+                if vertex == destination_vertex:
+                    
                # if so return the PATH
+                    return path
                #- mark it as visited
+                visited.add(vertex)
                #then add a PATH to its neighbors to the back of the queue
+                for next_vertex in self.vertices[vertex]:
+                    new_path = list(path)
+                    new_path.append(next_vertex)
+                    q.enqueue(new_path)
                 #COPY THE PATH
                 #Append the neighbor to the back
 
