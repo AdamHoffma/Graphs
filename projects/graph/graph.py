@@ -70,14 +70,14 @@ class Graph:
             #While the stack is not empty...
         while stack.size() > 0:
             #pop the first vertex
-            v = stack.pop()
+            vertex = stack.pop()
             #If that vertex has not been visited
-            if v not in visited:
+            if vertex not in visited:
                 #mark it as visited
-                print(v)
-                visited.add(v)
+                print(vertex)
+                visited.add(vertex)
                 #Then add all of its neighbors to the top of the stack 
-                for neighbor in self.vertices[v]:
+                for neighbor in self.vertices[vertex]:
                     stack.push(neighbor)
                     
 
