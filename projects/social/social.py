@@ -72,6 +72,7 @@ class SocialGraph:
 
         The key is the friend's ID and the value is the path.
         """
+        # Note: Every means traversal BFS
         visited = {}  # Note that this is a dictionary, not a set
         # !!!! IMPLEMENT ME
         return visited
