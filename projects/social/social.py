@@ -72,9 +72,21 @@ class SocialGraph:
 
         The key is the friend's ID and the value is the path.
         """
-        # Note: Every means traversal BFS
+        # Note: Every means traversal BFT
         visited = {}  # Note that this is a dictionary, not a set
-        # !!!! IMPLEMENT ME
+        # Create queue
+
+        # Looking for a PATH so enqueue the starting point in a list to start path
+
+        # While the queue is not empty
+
+            # Dequeue the PATH
+            # Find the last vertex (node) in the PATH
+
+            # If we have not visited this vertex (node)
+                # Do something with that vertex (node)
+                # Add it to visited
+                # Make a new PATH(copy) and enqueue for each vertex
         return visited
 
     
